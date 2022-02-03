@@ -27,7 +27,31 @@ test("test peek: queue with 2 element should peek the last one", () => {
     const queue = createQueue()
     queue.enqueue(2)
     queue.enqueue(3)
-    expect(queue.peek()).toEqual(3)
+    expect(queue.peek()).toEqual(2)
+})
+
+/*****/
+test("test clear: all the elements removed", () => {
+    const queue = createQueue()
+    for (let i =0;i<11;i++)
+        queue.enqueue(i)
+    queue.clear()
+    expect(queue.size()).toBe(0)
+})
+
+
+test("test dequeue: queue is empty and dequeue", () => {
+    expect(createQueue().dequeue()).toBeNull()
+})
+
+test("test clear : list should be empty",() =>{
+    expect(createQueue().clear()).toBeNull
+})
+
+test("clear with no entry", ()=>{
+    const queue = createQueue()
+    queue.clear()
+    expect(queue.isEmpty()).toBeTruthy()
 })
 
 let param = [5, 10, 1000000]
